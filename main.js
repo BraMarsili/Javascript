@@ -1,37 +1,41 @@
-// Defino Array de productos
-const productos = [
-    {
-        id: "1984",
-        titulo: "1984",
-        imagen: "assets/1984.jpg",
-        precio: 100
-    },
-    {
-        id: "Circe",
-        titulo: "Circe",
-        imagen: "assets/Circe.jpg",
-        precio: 400
-    },
-    {
-        id: "Fulgor",
-        titulo: "Fulgor",
-        imagen: "assets/Fulgor.jpg",
-        precio: 300
-    },
-    {
-        id: "Homo Deus",
-        titulo: "Homo Deus",
-        imagen: "assets/Homo Deus.jpg",
-        precio: 500
+const productos = []
+
+class Productos {
+    constructor(id, titulo, imagen, precio) {
+        this.id = id
+        this.titulo = titulo
+        this.imagen = imagen
+        this.precio = precio
     }
-];
+
+    createProduct() {
+        productos.push({id: this.id, titulo: this.titulo, imagen: this.imagen, precio: this.precio})
+    }
+}
+
+function createListJSON () {
+    fetch("./productos.json")
+        .then((resolve) => resolve.json())
+        .then((data) =>{
+            data.forEach(element     => {
+                const producto = new Productos(
+                    element.id,
+                    element.titulo,
+                    element.imagen,
+                    element.precio
+                );
+                
+                producto.createProduct()
+            });
+            cargarProducto()
+        })
+}
 
 // Guardo en constante las etiquetas HTML a usar
 const containerProduct = document.querySelector("#product-container")
 
 //Función encargada de cargar los productos
-function cargarProducto() {
-
+function cargarProducto() { 
     productos.forEach(producto => {
 
         const div = document.createElement("div");
@@ -69,7 +73,7 @@ function addToCart(producto) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     
-    const existingItemIndex = cart.findIndex(item => item.id == producto.id)
+    const existingItemIndex = cart.findIndex(item => item.id == producto.id) 
 
     if (existingItemIndex !== -1) {
         cart[existingItemIndex].quantity++
@@ -81,11 +85,23 @@ function addToCart(producto) {
 
     const contador = document.querySelector("#counter")
     contador.textContent = cart.reduce((ac ,item) => ac + item.quantity,0)
+
+    Toastify({
+        text: "Añadido al carrito",
+        duration: 3000,
+        close: true,
+        gravity: "bottom",
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+          background: "linear-gradient(to right top, #1c1e22, #272c2e, #333a3a, #434845, #545652)",
+        },
+      }).showToast();
 }
 
 window.addEventListener("load", () => {
 
-    cargarProducto()
+    createListJSON()
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 

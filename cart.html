@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <title>Bookify</title>
+    <title>Bookify - Carrito</title>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="assets/logo 2.png" alt="bookify"></a>
-                <div class="carrito">
-                    <a id="cartBoton" href="cart.html"><span id="counter"></span><img src="assets/carrito-de-compras.png" alt="Carrito"></a>
-                </div>
             </div>
           </nav>
     </header>
-    <main id="product-container">
+    <div class="container-fluid carritoMain">
+        <div class="container-fluid carritoTitulo">
+            <h1>Detalle de su compra</h1>
+            <div class="carrito column" id="carrito">
 
-    </main>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+            </div>
+        </div>
+        <div id="total">
+
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="cart.js"></script>
+
 </body>
 </html>

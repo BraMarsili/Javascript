@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1984",
+        "titulo": "1984",
+        "imagen": "assets/1984.jpg",
+        "precio": 100
+    },
+    {
+        "id": "Circe",
+        "titulo": "Circe",
+        "imagen": "assets/Circe.jpg",
+        "precio": 400
+    },
+    {
+        "id": "Fulgor",
+        "titulo": "Fulgor",
+        "imagen": "assets/Fulgor.jpg",
+        "precio": 300
+    },
+    {
+        "id": "Homo Deus",
+        "titulo": "Homo Deus",
+        "imagen": "assets/Homo Deus.jpg",
+        "precio": 500
+    }
+]
